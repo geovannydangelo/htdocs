@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fish Dragon Company - Piscicultura e Filtros Rotativos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518562180175-34a163b1a9a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .filter-image {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Fish Dragon Logo" class="h-12 mr-3">
+                <h1 class="text-2xl font-bold">The Fish Dragon Company</h1>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="nav-link hover:text-blue-200 transition" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link hover:text-blue-200 transition" data-page="products">Produtos</a></li>
+                    <li><a href="#" class="nav-link hover:text-blue-200 transition" data-page="bio-media">Mídia Biológica</a></li>
+                    <li><a href="#" class="nav-link hover:text-blue-200 transition" data-page="about">Sobre Nós</a></li>
+                    <li><a href="#" class="nav-link hover:text-blue-200 transition" data-page="contact">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="md:hidden text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-blue-800" id="mobile-menu">
+            <ul class="flex flex-col space-y-3 p-4">
+                <li><a href="#" class="nav-link block hover:text-blue-200 transition" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link block hover:text-blue-200 transition" data-page="products">Produtos</a></li>
+                <li><a href="#" class="nav-link block hover:text-blue-200 transition" data-page="bio-media">Mídia Biológica</a></li>
+                <li><a href="#" class="nav-link block hover:text-blue-200 transition" data-page="about">Sobre Nós</a></li>
+                <li><a href="#" class="nav-link block hover:text-blue-200 transition" data-page="contact">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <section id="home" class="page active">
+        <!-- Hero Section -->
+        <div class="hero py-20 text-white text-center">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Soluções em Piscicultura e Filtragem</h2>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Equipamentos de alta qualidade para sua produção aquícola</p>
+                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 inline-block" data-page="products">Conheça Nossos Produtos</a>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Nossas Soluções</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center product-card transition">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Filtros Rotativos</h3>
+                        <p class="text-gray-600">Dragon 25m³ até Dragon 300m³ - tecnologia avançada para limpeza eficiente da água em sistemas de aquicultura.</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center product-card transition">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-fish"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Mídia Biológica</h3>
+                        <p class="text-gray-600">Suporte para colonização de bactérias benéficas, essencial para a manutenção da qualidade da água em sistemas RAS.</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center product-card transition">
+                        <div class="text-blue-600 text-4xl mb-4">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Consultoria Técnica</h3>
+                        <p class="text-gray-600">Suporte especializado para dimensionamento e implementação de sistemas de filtragem para sua produção.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Preview -->
+        <div class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <img src="https://images.unsplash.com/photo-1584473457406-6240487618a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Fish Farm" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-6 text-gray-800">The Fish Dragon Company</h2>
+                        <p class="text-gray-600 mb-4">Especializada em equipamentos para piscicultura, oferecemos soluções completas para filtragem e tratamento de água em sistemas de produção aquícola.</p>
+                        <p class="text-gray-600 mb-6">Nossos filtros rotativos Dragon são desenvolvidos com tecnologia de ponta para atender desde pequenos produtores até grandes empreendimentos.</p>
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 inline-block" data-page="about">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">O Que Dizem Nossos Clientes</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"Os filtros Dragon revolucionaram nossa produção. A qualidade da água melhorou significativamente e nossos peixes estão mais saudáveis."</p>
+                        <div class="flex items-center">
+                            <img src="https://via.placeholder.com/50" alt="Client" class="h-10 w-10 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-semibold">Carlos Mendes</h4>
+                                <p class="text-sm text-gray-500">Piscicultura Santa Fé</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 text-xl mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"A mídia biológica da Fish Dragon tem uma excelente relação custo-benefício. Nossos sistemas de RAS nunca funcionaram tão bem."</p>
+                        <div class="flex items-center">
+                            <img src="https://via.placeholder.com/50" alt="Client" class="h-10 w-10 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-semibold">Ana Lúcia Santos</h4>
+                                <p class="text-sm text-gray-500">Fazenda Águas Claras</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Page -->
+    <section id="products" class="page">
+        <div class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-gray-800">Nossos Filtros Rotativos</h2>
+                
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-800">Série Dragon</h3>
+                    <p class="text-gray-600 mb-8 max-w-3xl">Nossos filtros rotativos Dragon são projetados para remover sólidos em suspensão de forma eficiente em sistemas de aquicultura. Com tecnologia de autolimpeza e baixo consumo energético, garantem água limpa para sua produção.</p>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Dragon 25 -->
+                        <div class="bg-white p-6 rounded-lg shadow-md product-card transition">
+                            <div class="overflow-hidden rounded-lg mb-4 filter-image">
+                                <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dragon 25" class="w-full h-48 object-cover">
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-blue-700">Dragon 25m³</h4>
+                            <p class="text-gray-600 mb-4">Capacidade de filtragem: 25m³/hora. Ideal para pequenas produções e sistemas de recirculação.</p>
+                            <ul class="mb-4 text-gray-600">
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Diâmetro: 1.2m</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Altura: 1.8m</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Peso: 180kg</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Potência: 0.5HP</li>
+                            </ul>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 w-full">Solicitar Orçamento</button>
+                        </div>
+                        
+                        <!-- Dragon 100 -->
+                        <div class="bg-white p-6 rounded-lg shadow-md product-card transition">
+                            <div class="overflow-hidden rounded-lg mb-4 filter-image">
+                                <img src="https://images.unsplash.com/photo-1631725998565-0ac8e0d0a1e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Dragon 100" class="w-full h-48 object-cover">
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-blue-700">Dragon 100m³</h4>
+                            <p class="text-gray-600 mb-4">Capacidade de filtragem: 100m³/hora. Para produções médias com excelente relação custo-benefício.</p>
+                            <ul class="mb-4 text-gray-600">
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Diâmetro: 2.0m</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Altura: 2.4m</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Peso: 450kg</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Potência: 1.5HP</li>
+                            </ul>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 w-full">Solicitar Orçamento</button>
+                        </div>
+                        
+                        <!-- Dragon 300 -->
+                        <div class="bg-white p-6 rounded-lg shadow-md product-card transition">
+                            <div class="overflow-hidden rounded-lg mb-4 filter-image">
+                                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Dragon 300" class="w-full h-48 object-cover">
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 text-blue-700">Dragon 300m³</h4>
+                            <p class="text-gray-600 mb-4">Capacidade de filtragem: 300m³/hora. Nosso modelo premium para grandes produções e fazendas industriais.</p>
+                            <ul class="mb-4 text-gray-600">
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Diâmetro: 3.0m</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Altura: 3.2m</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Peso: 1200kg</li>
+                                <li class="mb-1"><i class="fas fa-check text-green-500 mr-2"></i> Potência: 3.0HP</li>
+                            </ul>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 w-full">Solicitar Orçamento</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-800">Vantagens dos Filtros Dragon</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="flex items-start mb-4">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-cog text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Sistema de Autolimpeza</h4>
+                                    <p class="text-gray-600">Nossos filtros possuem sistema automático de limpeza que reduz a necessidade de manutenção e aumenta a vida útil do equipamento.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start mb-4">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-bolt text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Baixo Consumo Energético</h4>
+                                    <p class="text-gray-600">Projetados para máxima eficiência energética, reduzindo custos operacionais sem comprometer o desempenho.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-start mb-4">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-tint text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Alta Eficiência na Remoção de Sólidos</h4>
+                                    <p class="text-gray-600">Capaz de remover partículas de até 60 microns, garantindo água limpa para seus peixes.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start mb-4">
+                                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                    <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-2">Construção Robusta</h4>
+                                    <p class="text-gray-600">Fabricados em materiais resistentes à corrosão, ideais para ambientes úmidos e salinos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-800">Aplicações</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Piscicultura</h4>
+                            <p class="text-gray-600">Ideal para produção de tilápias, trutas, camarões e outras espécies em sistemas intensivos.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Sistemas RAS</h4>
+                            <p class="text-gray-600">Componente essencial em sistemas de recirculação de água (RAS) para aquicultura.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">Processamento</h4>
+                            <p class="text-gray-600">Filtragem de água em unidades de processamento de pescado e abatedouros.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Media Page -->
+    <section id="bio-media" class="page">
+        <div class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-gray-800">Mídia Biológica para Filtração</h2>
+                
+                <div class="mb-12">
+                    <div class="flex flex-col md:flex-row items-center mb-8">
+                        <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                            <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Mídia Biológica" class="rounded-lg shadow-lg w-full">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-semibold mb-4 text-blue-800">Mídia Biológica de Alta Performance</h3>
+                            <p class="text-gray-600 mb-4">Nossa mídia biológica é especialmente desenvolvida para proporcionar a máxima área superficial para colonização de bactérias nitrificantes, essenciais para o ciclo do nitrogênio em sistemas de aquicultura.</p>
+                            <p class="text-gray-600 mb-6">Com estrutura porosa e geometria otimizada, oferece até 650m² de área superficial por m³, garantindo eficiência no tratamento biológico da água.</p>
+                            <div class="bg-blue-100 p-4 rounded-lg">
+                                <p class="text-blue-800 font-semibold"><i class="fas fa-info-circle mr-2"></i> A mídia biológica é vendida separadamente ou em conjunto com nossos filtros rotativos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-4 text-blue-700">Características Técnicas</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Material: Polietileno de alta densidade (HDPE)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Área superficial: 650m²/m³</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Densidade: 0.96g/cm³ (flutuante)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Diâmetro dos poros: 10-15mm</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Resistente a UV e produtos químicos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                    <span>Vida útil: 10+ anos</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-xl font-bold mb-4 text-blue-700">Vantagens</h3>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>Alta taxa de colonização bacteriana</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>Não entope - fluxo livre de água</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>Auto-limpeza com movimento da água</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>Baixa perda de carga hidráulica</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>Fácil instalação e manutenção</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-star text-yellow-500 mt-1 mr-2"></i>
+                                    <span>Compatível com todos os sistemas RAS</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6 text-blue-800">Como Funciona a Mídia Biológica</h3>
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/3 mb-6 md:mb-0 md:pr-8">
+                                <img src="https://images.unsplash.com/photo-1550828484-55f0abc43e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Processo Biológico" class="rounded-lg shadow-lg w-full">
+                            </div>
+                            <div class="md:w-2/3">
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                            <span class="font-bold text-blue-800">1</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-1">Colonização Bacteriana</h4>
+                                            <p class="text-gray-600">Bactérias nitrificantes (Nitrosomonas e Nitrobacter) colonizam a superfície porosa da mídia, formando um biofilme.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                            <span class="font-bold text-blue-800">2</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-1">Conversão de Amônia</h4>
+                                            <p class="text-gray-600">As bactérias convertem amônia tóxica (NH3) em nitrito (NO2-) e depois em nitrato (NO3-), menos prejudicial.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                            <span class="font-bold text-blue-800">3</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold mb-1">Manutenção do Ecossistema</h4>
+                                            <p class="text-gray-600">O biofilme mantém-se estável, garantindo tratamento contínuo da água e saúde dos organismos cultivados.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-800">Dimensionamento</h3>
+                    <p class="text-gray-600 mb-6">O volume necessário de mídia biológica varia conforme a carga orgânica do sistema (quantidade de peixes, taxa de alimentação, etc.). Como regra geral, recomendamos:</p>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                            <thead class="bg-blue-800 text-white">
+                                <tr>
+                                    <th class="py-3 px-4 text-left">Sistema</th>
+                                    <th class="py-3 px-4 text-left">Capacidade de Peixes (kg)</th>
+                                    <th class="py-3 px-4 text-left">Volume Mídia (L)</th>
+                                    <th class="py-3 px-4 text-left">Para Filtro Dragon</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-3 px-4">Pequeno</td>
+                                    <td class="py-3 px-4">Até 500kg</td>
+                                    <td class="py-3 px-4">100-150L</td>
+                                    <td class="py-3 px-4">25m³</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-3 px-4">Médio</td>
+                                    <td class="py-3 px-4">500-2,000kg</td>
+                                    <td class="py-3 px-4">300-500L</td>
+                                    <td class="py-3 px-4">100m³</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4">Grande</td>
+                                    <td class="py-3 px-4">2,000-5,000kg</td>
+                                    <td class="py-3 px-4">800-1,200L</td>
+                                    <td class="py-3 px-4">200m³</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-3 px-4">Industrial</td>
+                                    <td class="py-3 px-4">Acima de 5,000kg</td>
+                                    <td class="py-3 px-4">2,000L+</td>
+                                    <td class="py-3 px-4">300m³</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-8 bg-blue-100 p-4 rounded-lg">
+                        <p class="text-blue-800"><i class="fas fa-exclamation-triangle mr-2"></i> Para dimensionamento preciso, consulte nosso time técnico que analisará as especificidades do seu projeto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page">
+        <div class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-gray-800">Sobre a The Fish Dragon Company</h2>
+                
+                <div class="flex flex-col md:flex-row items-center mb-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nossa Empresa" class="rounded-lg shadow-lg w-full">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-800">Nossa História</h3>
+                        <p class="text-gray-600 mb-4">Fundada em 2010 por Vicenzo D'Angelo, a The Fish Dragon Company nasceu da paixão pela aquicultura e da necessidade de equipamentos de qualidade para o setor no Brasil.</p>
+                        <p class="text-gray-600 mb-4">Começamos como pequenos importadores e hoje somos referência nacional em soluções para piscicultura, com equipamentos que atendem desde pequenos produtores até grandes fazendas industriais.</p>
+                        <p class="text-gray-600">Nossa missão é fornecer tecnologia de ponta para impulsionar a aquicultura brasileira, com produtos duráveis, eficientes e de fácil operação.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-800">Nossos Valores</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <h4 class="font-bold mb-2 text-lg">Qualidade</h4>
+                            <p class="text-gray-600">Selecionamos e desenvolvemos produtos com os mais altos padrões de qualidade e durabilidade.</p>
+                        </div>
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <h4 class="font-bold mb-2 text-lg">Inovação</h4>
+                            <p class="text-gray-600">Buscamos constantemente novas tecnologias para melhorar a eficiência da produção aquícola.</p>
+                        </div>
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <h4 class="font-bold mb-2 text-lg">Sustentabilidade</h4>
+                            <p class="text-gray-600">Nossos equipamentos são projetados para minimizar impacto ambiental e consumo de recursos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-800">Nosso Time</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <img src="https://via.placeholder.com/150" alt="Vicenzo D'Angelo" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                            <h4 class="font-bold text-lg mb-1">Vicenzo D'Angelo</h4>
+                            <p class="text-blue-600 mb-2">Fundador & CEO</p>
+                            <p class="text-gray-600">Engenheiro de Aquicultura com mais de 20 anos de experiência no setor. Visão estratégica e paixão pelo desenvolvimento da aquicultura nacional.</p>
+                            <div class="mt-4 flex justify-center space-x-3">
+                                <a href="https://www.instagram.com/vicenzodangelo/" class="text-blue-600 hover:text-blue-800" target="_blank">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <img src="https://via.placeholder.com/150" alt="Ana Beatriz" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                            <h4 class="font-bold text-lg mb-1">Ana Beatriz</h4>
+                            <p class="text-blue-600 mb-2">Gerente Técnica</p>
+                            <p class="text-gray-600">Mestre em Aquicultura, especialista em sistemas de recirculação (RAS). Responsável pelo suporte técnico e desenvolvimento de produtos.</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <img src="https://via.placeholder.com/150" alt="Carlos Eduardo" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                            <h4 class="font-bold text-lg mb-1">Carlos Eduardo</h4>
+                            <p class="text-blue-600 mb-2">Gerente Comercial</p>
+                            <p class="text-gray-600">Experiência de 15 anos em vendas técnicas para aquicultura. Conhece as necessidades de cada região e tipo de produção.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-semibold mb-6 text-blue-800">Nossa Estrutura</h3>
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Nossa Estrutura" class="rounded-lg shadow-lg w-full">
+                        </div>
+                        <div class="md:w-1/2">
+                            <ul class="space-y-4 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-warehouse text-blue-600 mt-1 mr-3 text-xl"></i>
+                                    <span>Centro de distribuição com 2.000m² em São Paulo</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-tools text-blue-600 mt-1 mr-3 text-xl"></i>
+                                    <span>Oficina técnica para manutenção e customização de equipamentos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-flask text-blue-600 mt-1 mr-3 text-xl"></i>
+                                    <span>Laboratório de testes para validação de novos produtos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-truck text-blue-600 mt-1 mr-3 text-xl"></i>
+                                    <span>Logística própria para entrega em todo território nacional</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-users text-blue-600 mt-1 mr-3 text-xl"></i>
+                                    <span>Equipe de 25 profissionais especializados</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page">
+        <div class="py-12 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-8 text-gray-800">Entre em Contato</h2>
+                
+                <div class="flex flex-col md:flex-row mb-12">
+                    <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <h3 class="text-xl font-bold mb-6 text-blue-700">Informações de Contato</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="text-blue-600 mr-4 mt-1">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Endereço</h4>
+                                        <p class="text-gray-600">Rua das Tilápias, 123 - Vila Aquária<br>São Paulo - SP<br>CEP: 04578-910</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="text-blue-600 mr-4 mt-1">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Telefone</h4>
+                                        <p class="text-gray-600">(11) 3456-7890</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="text-blue-600 mr-4 mt-1">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Email</h4>
+                                        <p class="text-gray-600">contato@fishdragon.com.br</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="text-blue-600 mr-4 mt-1">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">Horário de Atendimento</h4>
+                                        <p class="text-gray-600">Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="font-semibold mb-3">Redes Sociais</h4>
+                                <div class="flex space-x-4">
+                                    <a href="https://www.instagram.com/vicenzodangelo/" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition" target="_blank">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2">
+                        <div class="bg-white p-6 rounded-lg shadow-md h-full">
+                            <h3 class="text-xl font-bold mb-6 text-blue-700">Envie uma Mensagem</h3>
+                            <form id="contact-form">
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Nome</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="phone" class="block text-gray-700 font-medium mb-2">Telefone</label>
+                                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                                    <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                        <option value="" disabled selected>Selecione um assunto</option>
+                                        <option value="orcamento">Solicitar Orçamento</option>
+                                        <option value="suporte">Suporte Técnico</option>
+                                        <option value="duvidas">Dúvidas sobre Produtos</option>
+                                        <option value="outros">Outros</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                                </div>
+                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full">Enviar Mensagem</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                    <h3 class="text-xl font-bold mb-6 text-blue-700">Localização</h3>
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0754267452926!2d-46.65342658447536!3d-23.565734367638585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1629839397591!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="rounded-lg"></iframe>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Atendimento Personalizado</h3>
+                    <p class="text-gray-600 mb-4">Nossa equipe técnica está disponível para visitas em sua propriedade, auxiliando no dimensionamento e instalação dos equipamentos conforme as necessidades específicas do seu projeto.</p>
+                    <p class="text-gray-600">Entre em contato para agendar uma visita técnica sem compromisso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">The Fish Dragon Company</h3>
+                    <p class="mb-4">Soluções completas em equipamentos para piscicultura e aquicultura.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/vicenzodangelo/" class="hover:text-blue-200 transition" target="_blank">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-200 transition">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-200 transition">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-blue-200 transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Produtos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-200 transition" data-page="products">Filtros Rotativos</a></li>
+                        <li><a href="#" class="hover:text-blue-200 transition" data-page="bio-media">Mídia Biológica</a></li>
+                        <li><a href="#" class="hover:text-blue-200 transition" data-page="products">Série Dragon</a></li>
+                        <li><a href="#" class="hover:text-blue-200 transition" data-page="products">Acessórios</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Links Úteis</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-blue-200 transition" data-page="about">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-blue-200 transition" data-page="contact">Contato</a></li>
+                        <li><a href="#" class="hover:text-blue-200 transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-blue-200 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Newsletter</h4>
+                    <p class="mb-4">Assine para receber novidades e promoções.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Seu email" class="px-4 py-2 text-gray-800 rounded-l-lg focus:outline-none w-full">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-blue-800 text-center text-sm">
+                <p>&copy; 2023 The Fish Dragon Company. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Page navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to a server
+            // For this example, we'll just show an alert
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
